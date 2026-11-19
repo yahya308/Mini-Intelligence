@@ -141,7 +141,7 @@ Fine-tuning (B) gave no meaningful gain over the frozen-encoder head (A). The me
 
 - **Fixed pool, benchmark prompts.** The scores are tied to the fixed candidate pool and to benchmark-style prompts. Other task distributions, prompt formats or model versions may not transfer, as the LiveCodeBench result shows.
 - **English only.**
-- **Not calibrated.** Scores estimate benchmark correctness; they are not calibrated confidences. On held-out LiveCodeBench, the Brier score was no better than that of a constant prior. Validate calibration before using the scores as confidence thresholds.
+- **Not calibrated.** Scores estimate benchmark correctness; they are not calibrated confidences. On the official test splits, the mean Brier score over the 20 candidates was 0.198 and the log loss 0.575. On held-out LiveCodeBench (arm-B checkpoint trained without it), they were 0.241 and 0.718; that log loss is worse than predicting 0.5 for every candidate (0.693). Validate calibration before using the scores as confidence thresholds.
 - **No cost or latency.** Cost, latency, answer length and user preferences are not modeled.
 - **Numerical sensitivity.** Batch size and precision can change the probabilities by up to about 0.1 (about 0.005 on average). On all 1,172 ARC-Challenge prompts, compared with the experiment's GPU reference (bfloat16, batch 8):
   - Batch 1 on the GPU (as used by `predict` and the command line) changed the raw choice on 34 prompts and the gated choice on 45.
