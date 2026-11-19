@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mini-intelligence"
+version = "1.0.0"
+description = "Predict benchmark success for 20 candidate language models from an English query."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICE.md"]
+authors = [{ name = "yahya308" }]
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.4",
+  "transformers==5.17.0",
+  "huggingface_hub>=0.20",
+  "safetensors>=0.4",
+  "laya @ git+https://github.com/NandhaKishorM/laya.git@d1282e791d71e92f24f816ff3836e4fd1c2ded4a",
+]
+
+[project.urls]
+Repository = "https://github.com/yahya308/Mini-Intelligence"
+
+[project.scripts]
+mini-intelligence = "mini_intelligence.__main__:main"
+laya-e06 = "mini_intelligence.__main__:main"
+
+[tool.setuptools]
+packages = ["mini_intelligence"]
+
+[tool.setuptools.package-data]
+mini_intelligence = ["weights/*.safetensors", "weights/*.json"]

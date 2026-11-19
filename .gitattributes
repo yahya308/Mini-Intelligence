@@ -1,0 +1,8 @@
+# Store text files with LF line endings.
+* text=auto eol=lf
+
+# Binary model weights: never diff or convert.
+*.safetensors binary
+
+# Release metadata is kept byte-for-byte as exported (CRLF line endings).
+mini_intelligence/weights/router_config.json -text

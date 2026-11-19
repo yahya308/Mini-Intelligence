@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite this version when using the Mini Intelligence routing model."
+title: "Mini Intelligence: a fine-tuned Laya router that predicts success across 20 language models"
+authors:
+  - name: "yahya308"
+type: software
+version: 1.0.0
+date-released: 2026-11-19
+license: Apache-2.0
+repository-code: "https://github.com/yahya308/Mini-Intelligence"
+url: "https://github.com/yahya308/Mini-Intelligence/releases/tag/v1.0.0"
+keywords:
+  - model routing
+  - multi-label learning
+  - LoRA
+  - ModernBERT
