@@ -143,11 +143,12 @@ Fine-tuning (B) gave no meaningful gain over the frozen-encoder head (A). The me
 - **English only.**
 - **Not calibrated.** Scores estimate benchmark correctness; they are not calibrated confidences. On held-out LiveCodeBench, the Brier score was no better than that of a constant prior. Validate calibration before using the scores as confidence thresholds.
 - **No cost or latency.** Cost, latency, answer length and user preferences are not modeled.
-- **Numerical sensitivity.** Batch size and precision can change the probabilities by up to about 0.05:
-  - Batch 1 versus batch 8 changed the raw choice on 4 of 269 ARC-Challenge prompts.
-  - CPU float32 agreed with the GPU reference on 47 of 48 prompts checked.
+- **Numerical sensitivity.** Batch size and precision can change the probabilities by up to about 0.1 (about 0.005 on average). On all 1,172 ARC-Challenge prompts, compared with the experiment's GPU reference (bfloat16, batch 8):
+  - Batch 1 on the GPU (as used by `predict` and the command line) changed the raw choice on 34 prompts and the gated choice on 45.
+  - CPU float32 changed the raw choice on 38 prompts and the gated choice on 46.
+  - Grouping the prompts into different batches of 8 changed no raw choice and one gated choice.
 
-  The 0.025 gated margin is within this noise. Raw choices are more stable.
+  Routed ARC-Challenge accuracy stayed between 93.52% and 93.77% in all of these settings. The 0.025 gated margin is within this noise. Raw choices are more stable.
 
 ## Provenance and reproducibility
 
