@@ -4,13 +4,46 @@ title: "Mini Intelligence: a fine-tuned Laya router that predicts success across
 authors:
   - name: "yahya308"
 type: software
-version: 1.0.0
-date-released: 2026-11-19
+version: 2.0.0
+date-released: 2026-11-21
 license: Apache-2.0
 repository-code: "https://github.com/yahya308/Mini-Intelligence"
-url: "https://github.com/yahya308/Mini-Intelligence/releases/tag/v1.0.0"
+url: "https://huggingface.co/Yahya308/Mini-Intelligence"
 keywords:
   - model routing
   - multi-label learning
-  - LoRA
+  - fine-tuning
   - ModernBERT
+references:
+  - type: article
+    title: "LLMRouterBench: A Massive Benchmark and Unified Framework for LLM Routing"
+    authors:
+      - family-names: Li
+        given-names: Hao
+      - family-names: Zhang
+        given-names: Yiqun
+      - family-names: Guo
+        given-names: Zhaoyan
+      - family-names: Wang
+        given-names: Chenxu
+      - family-names: Tang
+        given-names: Shengji
+      - family-names: Zhang
+        given-names: Qiaosheng
+      - family-names: Chen
+        given-names: Yang
+      - family-names: Qi
+        given-names: Biqing
+      - family-names: Ye
+        given-names: Peng
+      - family-names: Bai
+        given-names: Lei
+      - family-names: Wang
+        given-names: Zhen
+      - family-names: Hu
+        given-names: Shuyue
+    year: 2026
+    identifiers:
+      - type: other
+        value: "arXiv:2601.07206"
+    url: "https://arxiv.org/abs/2601.07206"

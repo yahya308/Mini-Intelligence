@@ -1,0 +1,83 @@
+{
+  "format_version": 2,
+  "release": "2.0.0",
+  "models": [
+    "DeepHermes-3-Llama-3-8B-Preview",
+    "DeepSeek-R1-0528-Qwen3-8B",
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "Fin-R1",
+    "GLM-Z1-9B-0414",
+    "Intern-S1-mini",
+    "Llama-3.1-8B-Instruct",
+    "Llama-3.1-8B-UltraMedical",
+    "Llama-3.1-Nemotron-Nano-8B-v1",
+    "MiMo-7B-RL-0530",
+    "MiniCPM4.1-8B",
+    "NVIDIA-Nemotron-Nano-9B-v2",
+    "OpenThinker3-7B",
+    "Qwen2.5-Coder-7B-Instruct",
+    "Qwen3-8B",
+    "cogito-v1-preview-llama-8B",
+    "gemma-2-9b-it",
+    "glm-4-9b-chat",
+    "granite-3.3-8b-instruct",
+    "internlm3-8b-instruct"
+  ],
+  "input": {
+    "head_tokens": 211,
+    "tail_tokens": 212,
+    "max_content_tokens": 423,
+    "template": "[CLS] content [SEP]; the mask token is replaced by a space; no other special tokens"
+  },
+  "representation": "CLS vector after the encoder's final_norm",
+  "head": {
+    "layers": "LayerNorm(1024) -> Linear(1024, 128) -> GELU -> Dropout(0.1) -> Linear(128, 20)",
+    "width": 128,
+    "dropout": 0.1,
+    "output": "sigmoid"
+  },
+  "policy": {
+    "default": "raw",
+    "fallback_model_index": 14,
+    "fallback_model": "Qwen3-8B",
+    "fallback_margin": 0.0,
+    "rule": "gated: select the fallback model when p(top) - p(fallback) < fallback_margin",
+    "margin_grid": [
+      "always_fallback",
+      0.2,
+      0.1,
+      0.05,
+      0.025,
+      0.01,
+      0.0
+    ],
+    "margin_selection": "highest routed accuracy on the validation rows"
+  },
+  "training": {
+    "held_out_dataset": "arcc",
+    "fit_queries": 9759,
+    "validation_queries": 1722,
+    "selected_epoch": 3,
+    "epochs_run": 5,
+    "encoder_lr": 5e-05,
+    "head_lr": 0.001,
+    "weight_decay": 0.01,
+    "logical_batch": 16,
+    "max_epochs": 5,
+    "precision": "fp32 weights, bf16 autocast; layer-27 MLP fp32 at CLS only",
+    "gpu": "NVIDIA L40S",
+    "trainable_parameters": 394917524,
+    "min_validation_bce": 0.5608606582470903
+  },
+  "base_model": "convaiinnovations/laya",
+  "base_revision": "e333cb7c823cd1787276228260f56d02fbf5180b",
+  "base_sha256": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+  "training_checkpoint_sha256": "49acc7067cad04b3ecf944ede735080082bc7fc598970226d1cdc674d7ad7f37",
+  "files": {
+    "config.json": "1fb7072c9ede80879dd68e8457faf69b1989909d3ce6e902db0873d7b02234ac",
+    "model.safetensors": "7e29152f140bc4dadaf78152bc99210bda242a91a4ae66723aebe797a245b41e",
+    "head.safetensors": "cf24e4e656b54404f06c72513eb2e03ca1929fe55f58965e397286fe2b495155",
+    "tokenizer.json": "6c8aaa9a542084f2457eab775d4eeb51f92a70c0fd9de28d5edb0ddec3c08d30",
+    "tokenizer_config.json": "50044de60daaa73df97d262e15a40d4faf0160e7d742df64b377877a1320dd12"
+  }
+}
