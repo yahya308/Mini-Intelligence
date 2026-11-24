@@ -10,7 +10,7 @@ from torch import nn
 
 # Hugging Face model repository and the exact commit this package release was verified against.
 HF_REPO = "Yahya308/Mini-Intelligence"
-HF_REVISION = None  # set to the 40-character commit hash of the v2.0.0 upload
+HF_REVISION = "89aab85dd0a906c2c42399237786451fffc2afdb"  # commit of the v2.0.0 upload (Hugging Face tag v2.0.0)
 CONFIG_PATH = Path(__file__).resolve().parent / "router_config.json"
 FILES = ("router_config.json", "config.json", "model.safetensors", "head.safetensors",
          "tokenizer.json", "tokenizer_config.json")

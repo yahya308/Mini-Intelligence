@@ -160,7 +160,7 @@ Mean ± standard deviation over the 5 splits:
 
 Compared with v1, the mean gain is +0.68 points Sample-Avg and +1.05 points Dataset-Avg. In paired bootstrap tests per split (2,000 resamples, 95% intervals), the Sample-Avg gain was above zero in 3 of the 5 splits. The Dataset-Avg gain was not distinguishable from zero in any split. v1 and v2 were trained on different GPUs.
 
-For context only, the [LLMRouterBench paper](https://arxiv.org/abs/2601.07206) (Table 13) reports these Dataset-Avg values for published routers: Avengers 71.94%, MODEL-SAT 71.88%, EmbedLLM 71.24%, GraphRouter 70.29% and RouterDC 61.33%. We did not re-run them. Our numbers come from different hardware and runs, so we make no claim of a significant difference.
+For context only, the [LLMRouterBench paper](https://arxiv.org/abs/2601.07206) (Table 11; same 20 candidates, 15 datasets, 70/30 splits and five seeds as our evaluation) reports these Dataset-Avg values for published routers: Avengers 71.94%, MODEL-SAT 71.88%, EmbedLLM 71.24%, GraphRouter 70.29% and RouterDC 61.33%. We did not re-run them. The paper marks the values of MODEL-SAT, EmbedLLM, GraphRouter and RouterDC as peak scores on the test set, and gives no intervals. Our numbers come from different hardware and runs, so we make no claim of a significant difference: v2 is on par with the strongest published routers.
 
 **Held-out ARC-Challenge** (this exact released checkpoint; 1,172 queries never used for training or selection):
 
@@ -193,7 +193,7 @@ All figures are on the 1,172 ARC-Challenge queries, scored in batches of 8 unles
 
 | Item | Value |
 |---|---|
-| Model repository | [`Yahya308/Mini-Intelligence`](https://huggingface.co/Yahya308/Mini-Intelligence), commit `HF_COMMIT_PENDING` (tag `v2.0.0`) |
+| Model repository | [`Yahya308/Mini-Intelligence`](https://huggingface.co/Yahya308/Mini-Intelligence), commit `89aab85dd0a906c2c42399237786451fffc2afdb` (tag `v2.0.0`) |
 | `model.safetensors` SHA-256 | `7e29152f140bc4dadaf78152bc99210bda242a91a4ae66723aebe797a245b41e` |
 | `head.safetensors` SHA-256 | `cf24e4e656b54404f06c72513eb2e03ca1929fe55f58965e397286fe2b495155` |
 | Training checkpoint SHA-256 | `49acc7067cad04b3ecf944ede735080082bc7fc598970226d1cdc674d7ad7f37` |
